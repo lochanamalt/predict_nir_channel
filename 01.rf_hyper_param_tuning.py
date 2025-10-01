@@ -46,7 +46,7 @@ print("Best CV R²:", grid_search.best_score_)
 
 best_rf = grid_search.best_estimator_
 # Best hyperparameters for whole dataset: {'bootstrap': True, 'max_depth': 10, 'max_features': 17, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 1200}
-
+# Best hyperparameters with hour : {'bootstrap': True, 'max_depth': 10, 'max_features': 17, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 1000}
 y_test_pred = best_rf.predict(X_test)
 
 print("Test R²:", r2_score(y_test, y_test_pred))

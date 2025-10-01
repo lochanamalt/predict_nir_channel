@@ -8,11 +8,12 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import GridSearchCV, train_test_split
 from sklearn.metrics import r2_score, mean_squared_error
 
-from constants.parameters import TOP_FEATURES_PYTHON, TOP_FEATURES_R
+from constants.parameters import TOP_FEATURES_PYTHON, TOP_FEATURES_R, \
+    TOP_FEATURES_R_WITH_HOUR, TOP_FEATURES_PYTHON_WITH_HOUR
 
 param_grid = {
     "n_estimators": [200, 500, 1000, 1200],
-    "max_features": [2, 3, 10, 16],
+    "max_features": [2, 3, 10, 17],
     "max_depth": [None, 5, 10, 20],
     "min_samples_split": [2, 5, 10],
     "min_samples_leaf": [1, 2, 4],
@@ -56,31 +57,22 @@ def run_grid_search(dataset):
 if __name__ == "__main__":
     df = pd.read_excel("data/rf_data_with_features.xlsx")
 
-    df_top_python = df[TOP_FEATURES_PYTHON + ["uav_nir"]]
-    df_top_r = df[TOP_FEATURES_R + ["uav_nir"]]
+    df_top_python = df[TOP_FEATURES_PYTHON_WITH_HOUR + ["uav_nir"]]
+    df_top_r = df[TOP_FEATURES_R_WITH_HOUR + ["uav_nir"]]
 
-    # run_grid_search(df_top_features_python)
-    # Best
-    # hyperparameters: {'bootstrap': True, 'max_depth': 10, 'max_features': 3, 'min_samples_leaf': 1,
+    run_grid_search(df_top_python)
+    # Best hyperparameters: {'bootstrap': True, 'max_depth': None, 'max_features': 3, 'min_samples_leaf': 1,
     #                   'min_samples_split': 2, 'n_estimators': 200}
-    # Best
-    # CV
-    # R²: 0.17193002071669178
-    # Test
-    # R²: 0.2934454068464013
-    # Test
-    # MSE: 0.0023885815204945505
+    # Best CV R²: 0.19361396255012361
+    # Test R²: 0.2813646882075539
+    # Test MSE: 0.0024294216502943606
 
-    run_grid_search(df_top_r)
+    #run_grid_search(df_top_r)
 
-    # Best
-    # hyperparameters: {'bootstrap': True, 'max_depth': None, 'max_features': 2, 'min_samples_leaf': 1,
-    #                   'min_samples_split': 5, 'n_estimators': 200}
-    # Best
-    # CV
-    # R²: 0.17236419524886265
-    # Test
-    # R²: 0.3130594951367409
-    # Test
-    # MSE: 0.0023222740485941184
+    # Best hyperparameters: {'bootstrap': True, 'max_depth': None, 'max_features': 3, 'min_samples_leaf': 1,
+    # 'min_samples_split': 2, 'n_estimators': 200}
+    # Best CV R²: 0.19081073523827483
+    # Test R²: 0.32247694272595573
+    # Test MSE: 0.0022904373844498454
+
 

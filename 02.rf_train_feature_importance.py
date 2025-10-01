@@ -6,7 +6,8 @@
 import pandas as pd
 from matplotlib import pyplot as plt
 
-from constants.parameters import all_features_best_hyper_params
+from constants.parameters import all_features_best_hyper_params, \
+    all_features_with_hour_best_hyper_params
 from helper.rf_model_helper import split_dataset, get_rf_model
 
 # Load the training data from R
@@ -14,7 +15,7 @@ df = pd.read_excel("data/rf_data_with_features.xlsx")
 
 X, y = split_dataset(df)
 
-rf_model = get_rf_model(all_features_best_hyper_params)
+rf_model = get_rf_model(all_features_with_hour_best_hyper_params)
 
 rf_model.fit(X, y)
 
@@ -55,6 +56,36 @@ G_noir: 0.0163
 NIR_true_log: 0.0133
 NIR_true: 0.0132
 NIR_true2: 0.0129
+
+
+
+
+BB_true_diff: 0.1260
+RR_true_diff: 0.1047
+RN_ratio: 0.0653
+GB_ratio: 0.0625
+GG_true_diff: 0.0625
+BN_inter: 0.0499
+BN_ratio: 0.0466
+RB_inter: 0.0370
+RN_inter: 0.0369
+GN_ratio: 0.0362
+R_noir: 0.0312
+GB_inter: 0.0310
+R_noir_log: 0.0307
+R_noir2: 0.0300
+B_noir2: 0.0300
+B_noir_log: 0.0298
+B_noir: 0.0297
+hour: 0.0296
+RG_inter: 0.0227
+GN_inter: 0.0186
+G_noir2: 0.0176
+G_noir: 0.0169
+G_noir_log: 0.0162
+NIR_true: 0.0132
+NIR_true_log: 0.0127
+NIR_true2: 0.0124
 
 """
 

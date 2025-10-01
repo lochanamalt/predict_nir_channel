@@ -71,19 +71,19 @@ Tuning was performed using Grid Search with the full set of features.
 
 ### Python-based Best Features with Best Hyperparameters:
 
-* Mean CV R²: 0.2107 (±0.0751)
-* Train R²: 0.7953
-* Train MSE: 0.000698
-* Test R²: 0.2934
-* Test MSE: 0.002389
+* Mean CV R²: 0.2197 (±0.0751)
+* Train R²: 0.8013
+* Train MSE: 0.000677
+* Test R²: 0.2802
+* Test MSE: 0.002433
 
 ### R-based Best Features with Best Hyperparameters
 
-* Mean CV R²: 0.2189 (±0.0763)
-* Train R²: 0.8150
-* Train MSE: 0.000631
-* Test R²: 0.3131
-* Test MSE: 0.002322
+* Mean CV R²: 0.2363 (±0.0763)
+* Train R²: 0.8185
+* Train MSE: 0.000619
+* Test R²: 0.3285
+* Test MSE: 0.00227
 
 ✅ The **R-derived feature set** provided better performance.
 
@@ -105,6 +105,7 @@ Tuning was performed using Grid Search with the full set of features.
 14. B_noir_log
 15. R_noir
 16. R_noir_log
+17. hour
 
 ---
 ## Final Random Forest Model
